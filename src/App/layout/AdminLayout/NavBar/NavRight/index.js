@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import ChatList from './ChatList';
 import Aux from "../../../../../hoc/_Aux";
 import DEMO from "../../../../../store/constant";
+import AppConfig from "../../../../../store/config";
 
 import Avatar1 from '../../../../../assets/images/user/avatar-1.jpg';
 import Avatar2 from '../../../../../assets/images/user/avatar-2.jpg';
@@ -120,7 +121,7 @@ class NavRight extends Component {
                                 </div>
                                 <ul className="pro-body">
                                     <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-settings"/> Settings</a></li>
-                                    <li><a href="/profile" className="dropdown-item"><i className="feather icon-user"/> Profile</a></li>
+                                    <li><a href={"/"+AppConfig.APPLICATION_NAME_LINK+"/profile"} className="dropdown-item"><i className="feather icon-user"/> Profile</a></li>
                                     <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-mail"/> My Messages</a></li>
                                     <li><a href={DEMO.BLANK_LINK} className="dropdown-item"><i className="feather icon-lock"/> Lock Screen</a></li>
                                 </ul>

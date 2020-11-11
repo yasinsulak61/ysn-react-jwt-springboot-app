@@ -4,6 +4,9 @@ import { Redirect } from "react-router-dom";
 import Aux from "../../hoc/_Aux";
 
 import AuthService from "../../services/auth.service";
+import DEMO from "../../store/constant";
+
+import avatar1 from "../../assets/images/user/avatar-1.jpg";
 
 export class Profile extends Component {
   constructor(props) {
@@ -30,53 +33,69 @@ export class Profile extends Component {
     return (
       <Aux>
         <Row>
-          <Col>
-            <Card>
-              <Card.Header>
-                <Card.Title as="h5">Profil</Card.Title>
-                <span className="d-block m-t-5">
-                  use props <code>hover</code> with <code>Table</code> component
-                </span>
-              </Card.Header>
-              <Card.Body>
+           <Col md={6} xl={12}>
+            <Card className="Recent-Users">
+            <Card.Header>
+            <Card.Title as="h5">Profil</Card.Title>
+            <span className="d-block m-t-5">
+              use props <code>hover</code> with <code>Table</code> component
+            </span>
+          </Card.Header>
+              <Card.Body className="px-0 py-2">
                 <Table responsive hover>
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>ID</th>
-                      <th>Kullanıcı Adı</th>
-                      <th>Email</th>
-                      <th>Authorities</th>
-                      <th></th>
-                    </tr>
-                  </thead>
                   <tbody>
                     <tr className="unread">
-                      <th scope="row">1</th>
-                      <td>{currentUser.id}</td>
-                      <td>{currentUser.username}</td>
-                      <td>{currentUser.email}</td>
+                      <td>
+                        <img
+                          className="rounded-circle"
+                          style={{ width: "40px" }}
+                          src={avatar1}
+                          alt="activity-user"
+                        />
+                      </td>
+                      <td>
+                          <h6 className="mb-1">ID</h6>
+                          <p className="m-0">
+                         {currentUser.id}
+                      </p>
+                    </td>                      
+                      <td>
+                        <h6 className="mb-1">{currentUser.username}</h6>
+                        <p className="m-0">
+                        {currentUser.email}
+                        </p>
+                      </td>
                       <td>
                         <h6 className="text-muted">
                           <i className="fa fa-circle text-c-green f-10 m-r-15" />
-                          {currentUser.roles &&
-                            currentUser.roles.map((role, index) => (
-                              <i key={index}>{role}</i>
-                            ))}
+                          11 MAY 12:56
                         </h6>
                       </td>
                       <td>
+                      <h6 className="text-muted">
+                        <i className="fa fa-circle text-c-blue f-10 m-r-15" />
+                        {currentUser.roles &&
+                          currentUser.roles.map((role, index) => (
+                            <span key={index}>{role}</span>
+                          ))}
+                      </h6>
+                    </td>
+                      <td>
                         <a
-                          href="#!"
+                          href={DEMO.BLANK_LINK}
                           className="label theme-bg2 text-white f-12"
                         >
                           Reject
                         </a>
-                        <a href="#!" className="label theme-bg text-white f-12">
+                        <a
+                          href={DEMO.BLANK_LINK}
+                          className="label theme-bg text-white f-12"
+                        >
                           Approve
                         </a>
                       </td>
                     </tr>
+                    
                   </tbody>
                 </Table>
               </Card.Body>
