@@ -3,7 +3,7 @@ import { Row, Col, Card, Table } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import Aux from "../../hoc/_Aux";
 
-import AuthService from "../../services/auth.service";
+import AuthService from "../../store/services/api/AuthenticationServices/auth.service";
 import DEMO from "../../store/constant";
 
 import avatar1 from "../../assets/images/user/avatar-1.jpg";

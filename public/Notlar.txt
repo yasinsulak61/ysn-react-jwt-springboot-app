@@ -1,0 +1,6 @@
+CTRL + T	Tüm sembolleri göster
+CTRL + G	Satıra git
+CTRL + P	Dosyaya git
+CTRL + SHIFT + TAB	Editör grubu geçmişinde gezinme
+SHIFT + ALT + F	Belgeyi biçimlendir
+CTRL + K veya CTRL + F	Seçimi biçimlendir

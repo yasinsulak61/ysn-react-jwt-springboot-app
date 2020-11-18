@@ -5,7 +5,7 @@ import "./../../../assets/scss/style.scss";
 import Aux from "../../../hoc/_Aux";
 import Breadcrumb from "../../../App/layout/AdminLayout/Breadcrumb";
 
-import AuthService from "../../../services/auth.service";
+import AuthService from "../../../services/api/AuthenticationServices/auth.service";
 import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 

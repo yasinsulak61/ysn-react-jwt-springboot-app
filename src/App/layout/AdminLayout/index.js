@@ -10,7 +10,7 @@ import Breadcrumb from './Breadcrumb';
 import Loader from "../Loader";
 import routes from "../../../routes";
 import Aux from "../../../hoc/_Aux";
-import * as actionTypes from "../../../store/actions";
+import * as actionTypes from "../../../store/actions/main/actions";
 
 import './app.scss';
 
@@ -70,7 +70,6 @@ class AdminLayout extends Component {
                                                 <Switch>
                                                     {menu}
                                                     <Redirect from="/" to={this.props.defaultPath} />
-                                                    <Redirect from="/users" to={this.props.defaultPath} />
                                                 </Switch>
                                             </Suspense>
                                         </div>

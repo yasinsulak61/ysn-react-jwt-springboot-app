@@ -1,5 +1,5 @@
 {
-  "name": "datta-able-rv18.0.4",
+  "name": "Restapp",
   "version": "0.1.0",
   "private": true,
   "homepage": "http://lite.codedthemes.com/datta-able/react/default/",
@@ -25,7 +25,8 @@
     "react-substring": "^0.1.6",
     "react-validation": "^3.0.7",
     "react-window-size": "^1.2.2",
-    "redux": "^4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "validator": "^12.2.0"
   },
   "scripts": {

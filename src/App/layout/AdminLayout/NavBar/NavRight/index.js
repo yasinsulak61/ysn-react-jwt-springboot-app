@@ -10,7 +10,7 @@ import AppConfig from "../../../../../store/config";
 import Avatar1 from '../../../../../assets/images/user/avatar-1.jpg';
 import Avatar2 from '../../../../../assets/images/user/avatar-2.jpg';
 import Avatar3 from '../../../../../assets/images/user/avatar-3.jpg';
-import AuthService from "../../../../../services/auth.service";
+import AuthService from "../../../../../store/services/api/AuthenticationServices/auth.service";
 
 class NavRight extends Component {
     constructor(props) {
@@ -40,7 +40,6 @@ class NavRight extends Component {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
           }
-      
           const { currentUser } = this.state;
 
         return (
