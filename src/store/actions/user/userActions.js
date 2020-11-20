@@ -1,21 +1,33 @@
-import * as actionTypes from "./actionTypes";
-import * as url_type from "../../../services/config";
+//import axios from "axios";
+import authHeader from "../../services/api/AuthenticationServices/auth-header";
+import * as url_type from "../../services/config";
+import * as actionTypes from "./actionsTypes";
+const API_URL_SERVICE = url_type.API_URL_BACKEND + "user/";
 
-let API_URL_SERVICE = url_type.API_URL_BACKEND + "user/";
-export function changeUser(user){
-    return {type:actionTypes.CHANGE_USER,payload:user}
-
+export function getUserSucces(users) {
+  return { type: actionTypes.GET_ALL_USER_LIST_SUCCES, payload: users };
 }
-export function getUserSucces(user){
-    return {type: actionTypes.GET_ALL_USER_LIST_SUCCES, payload: user }
+export function getUserList() {
+  return function (dispatch) {
+    return fetch(API_URL_SERVICE + "getUsers.ajax", {
+      headers: authHeader(),
+    })
+      .then((response) => response.json())
+      .then((result) => dispatch(getUserSucces(result)))    
+  };
 }
 
-
-export function getUser(){
-    return function(dispatch){
-
-        return fetch(API_URL_SERVICE).then(response =response.json()).then(result =>dispatch())
-
-
-    }
-}
+/*
+return axios
+      .get(API_URL_SERVICE + "getUsers.ajax", {
+        headers: authHeader(),
+      })
+      .then((res) => {
+        console.log(res.data.data);
+        console.log("Total:" + res.data.total);
+      })
+      .then((res) => dispatch(getUserSucces(res)))
+      .catch((err) => {
+        console.log(err);
+      });
+*/
