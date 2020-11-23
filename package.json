@@ -47,5 +47,5 @@
   "devDependencies": {
     "react-to-print": "^2.1.1"
   },
-  "proxy": "http://localhost:8080/api"
+  "proxy": "http://10.6.40.34:8080/api"
 }

@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Row, Col, Card, Table } from "react-bootstrap";
 import AuthService from "../../store/services/api/AuthenticationServices/auth.service";
-
-//import * as actionTypes from "../../store/actions/user/actions";
 import { bindActionCreators } from "redux";
 import * as userActions from "../../store/actions/user/userActions";
 import Aux from "../../hoc/_Aux";
@@ -63,11 +61,9 @@ export class Users extends Component {
                           </td>
                           <td>
                             <a className="label theme-bg2 text-white f-12">
-                              {
-                                user.roles.map(role =>(
-                                  role.name
-                                ))
-                              }
+                              {user.roles.map((role) => (
+                                <span key={role.id}>{role.name}</span>
+                              ))}
                             </a>
                           </td>
 
@@ -75,6 +71,10 @@ export class Users extends Component {
                             <a
                               href={DEMO.BLANK_LINK}
                               className="label theme-bg2 text-white f-12"
+                              onClick={() =>
+                                this.props.actions.changeUser(user),
+                                console.log(user)
+                              }
                             >
                               Sil
                             </a>
@@ -109,6 +109,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getUserList: bindActionCreators(userActions.getUserList, dispatch),
+      changeUser: bindActionCreators(userActions.changeUser, dispatch),
     },
   };
 }
