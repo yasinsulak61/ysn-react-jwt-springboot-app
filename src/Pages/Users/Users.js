@@ -25,7 +25,6 @@ export class Users extends Component {
     if (!currentUser) this.setState({ redirect: "/auth/signin" });
     this.props.actions.getUserList();
   }
-
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />;
@@ -63,17 +62,27 @@ export class Users extends Component {
                             </h6>
                           </td>
                           <td>
+                            <a className="label theme-bg2 text-white f-12">
+                              {
+                                user.roles.map(role =>(
+                                  role.name
+                                ))
+                              }
+                            </a>
+                          </td>
+
+                          <td>
                             <a
                               href={DEMO.BLANK_LINK}
                               className="label theme-bg2 text-white f-12"
                             >
-                              Reject
+                              Sil
                             </a>
                             <a
                               href={DEMO.BLANK_LINK}
                               className="label theme-bg text-white f-12"
                             >
-                              Approve
+                              Düzenle
                             </a>
                           </td>
                         </tr>
