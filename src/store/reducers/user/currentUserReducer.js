@@ -1,12 +1,12 @@
 import * as actionsTypes from "../../actions/user/actionsTypes";
 import initialState from "./initialState";
 
-export default function changeUserReducer(
+export default function currentUserReducer(
   state = initialState.currentUser,
   action
 ) {
   switch (action.actionsTypes) {
-    case actionsTypes.CHANGE_USER:
+    case actionsTypes.CURRENT_USER:
       return action.payload;
     default:
       return state;

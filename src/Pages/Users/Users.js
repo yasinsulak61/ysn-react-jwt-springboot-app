@@ -35,6 +35,7 @@ export class Users extends Component {
               <Card className="Recent-Users">
                 <Card.Header>
                   <Card.Title as="h5">Kullanıcılar</Card.Title>
+                  
                 </Card.Header>
                 <Card.Body className="px-0 py-2">
                   <Table responsive hover>
@@ -60,20 +61,22 @@ export class Users extends Component {
                             </h6>
                           </td>
                           <td>
-                            <a className="label theme-bg2 text-white f-12">
+                            <a
+                              href={DEMO.BLANK_LINK}
+                              className="label theme-bg2 text-white f-12"
+                            >
                               {user.roles.map((role) => (
                                 <span key={role.id}>{role.name}</span>
                               ))}
                             </a>
                           </td>
-
                           <td>
                             <a
                               href={DEMO.BLANK_LINK}
                               className="label theme-bg2 text-white f-12"
-                              onClick={() =>
-                                this.props.actions.changeUser(user),
-                                console.log(user)
+                              onClick={
+                                (() => this.props.actions.currentUser(user.id),
+                                console.log(user.id))
                               }
                             >
                               Sil
@@ -109,7 +112,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       getUserList: bindActionCreators(userActions.getUserList, dispatch),
-      changeUser: bindActionCreators(userActions.changeUser, dispatch),
+      currentUser: bindActionCreators(userActions.currentUser, dispatch),
     },
   };
 }
