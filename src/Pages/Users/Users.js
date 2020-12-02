@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Row, Col, Card, Table } from "react-bootstrap";
+import { Row, Col, Card, Table, Button } from "react-bootstrap";
 import AuthService from "../../store/services/api/AuthenticationServices/auth.service";
 import { bindActionCreators } from "redux";
 import * as userActions from "../../store/actions/user/userActions";
 import Aux from "../../hoc/_Aux";
+import UcFirst from "../../App/components/UcFirst";
+
 import DEMO from "../../store/constant";
 import avatar1 from "../../assets/images/user/avatar-1.jpg";
 
@@ -35,7 +37,13 @@ export class Users extends Component {
               <Card className="Recent-Users">
                 <Card.Header>
                   <Card.Title as="h5">Kullanıcılar</Card.Title>
-                  
+                  <Button
+                    className="pull-right"
+                    variant="outline-success"
+                    size="sm"
+                  >
+                    <UcFirst text="Kullanıcı Ekle" />
+                  </Button>
                 </Card.Header>
                 <Card.Body className="px-0 py-2">
                   <Table responsive hover>
@@ -61,6 +69,13 @@ export class Users extends Component {
                             </h6>
                           </td>
                           <td>
+                            <h6 className="mb-1">{user.enabled}</h6>
+                          </td>
+                          <td>
+                            <h6 className="mb-1">{user.loced}</h6>
+                          </td>
+
+                          <td>
                             <a
                               href={DEMO.BLANK_LINK}
                               className="label theme-bg2 text-white f-12"
@@ -76,7 +91,7 @@ export class Users extends Component {
                               className="label theme-bg2 text-white f-12"
                               onClick={
                                 (() => this.props.actions.currentUser(user.id),
-                                console.log(user.id))
+                                console.log(user))
                               }
                             >
                               Sil
